@@ -1,0 +1,40 @@
+baseURL = "https://j0132.github.io/my_personal_site/"
+languageCode = "ru-ru"
+defaultContentLanguage = "ru"
+title = "Мой личный сайт"
+theme = "terminal"
+paginate = 3
+
+[params]
+  contentTypeName = "posts"
+  themeColor = "orange"
+  showMenuItems = 3
+  fullWidthTheme = false
+  centerTheme = true
+
+[languages]
+  [languages.ru]
+    languageName = "Russian"   # просто название языка в интерфейсе, можешь написать "Русский"
+    title = "Блог j0132"
+    subtitle = "Попытка писать статейки номер 2"
+    
+    [languages.ru.params.logo]
+      logoText = "j0132_blog"
+      logoHomeLink = "/"
+    
+    [languages.ru.menu]
+      [[languages.ru.menu.main]]
+        identifier = "archive"
+        name = "Архив"
+        url = "/archive"
+        weight = 20
+      [[languages.ru.menu.main]]
+        identifier = "about"
+        name = "Обо мне"
+        url = "/about"
+        weight = 30
+      [[languages.ru.menu.main]]
+        identifier = "posts"
+        name = "Записи"
+        url = "/posts"
+        weight = 10      

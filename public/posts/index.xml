@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Блог j0132</title>
+    <link>//localhost:1313/posts/</link>
+    <description>Recent content in Posts on Блог j0132</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ru</language>
+    <lastBuildDate>Thu, 26 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lichee pi Zero, гайд по созданию образа ОС</title>
+      <link>//localhost:1313/posts/licheepi-zero/</link>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/licheepi-zero/</guid>
+      <description>Статья является пересборкой моей же статьи от 22.02.2021 года: &amp;ldquo;Битва с одноплатным чудовищем. LicheePi Zero. Страх, боль и страдания.&amp;rdquo; Писалась она для моей группы vk.com, и я ей доволен по этому редактировать буду мало что. Сейчас делаю перепост дабы познакомится с вами. В остальном этот гайд может помочь вам собрать образ для sd карты чтобы lichee pi запустилась. И через еще три поста, эта статья улетит в архив.&#xA;Начало?: И так, в дебрях алиэкспресса была найдена эта привлекательная по цене и габаритам плата микрокомпьютера.</description>
+    </item>
+  </channel>
+</rss>

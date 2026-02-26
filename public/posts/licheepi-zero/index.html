@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+    <title>Lichee pi Zero, гайд по созданию образа ОС :: Блог j0132</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Статья является пересборкой моей же статьи от 22.02.2021 года: &amp;ldquo;Битва с одноплатным чудовищем. LicheePi Zero. Страх, боль и страдания.&amp;rdquo; Писалась она для моей группы vk.com, и я ей доволен по этому редактировать буду мало что. Сейчас делаю перепост дабы познакомится с вами. В остальном этот гайд может помочь вам собрать образ для sd карты чтобы lichee pi запустилась. И через еще три поста, эта статья улетит в архив.
+Начало?: И так, в дебрях алиэкспресса была найдена эта привлекательная по цене и габаритам плата микрокомпьютера." />
+<meta name="keywords" content="" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="//localhost:1313/posts/licheepi-zero/" />
+
+
+
+
+
+  
+  <link rel="stylesheet" href="//localhost:1313/css/buttons.min.86f6b4c106b6c6eb690ae5203d36b442c1f66f718ff4e8164fa86cf6c61ad641.css">
+
+  
+  <link rel="stylesheet" href="//localhost:1313/css/code.min.d529ea4b2fb8d34328d7d31afc5466d5f7bc2f0bc9abdd98b69385335d7baee4.css">
+
+  
+  <link rel="stylesheet" href="//localhost:1313/css/fonts.min.5bb7ed13e1d00d8ff39ea84af26737007eb5051b157b86fc24487c94f3dc8bbe.css">
+
+  
+  <link rel="stylesheet" href="//localhost:1313/css/footer.min.eb8dfc2c6a7eafa36cd3ba92d63e69e849e2200e0002a228d137f236b09ecd75.css">
+
+  
+  <link rel="stylesheet" href="//localhost:1313/css/gist.min.a751e8b0abe1ba8bc53ced52a38b19d8950fe78ca29454ea8c2595cf26aad5c0.css">
+
+  
+  <link rel="stylesheet" href="//localhost:1313/css/header.min.75c7eb0e2872d95ff48109c6647d0223a38db52e2561dd87966eb5fc7c6bdac6.css">
+
+  
+  <link rel="stylesheet" href="//localhost:1313/css/main.min.36833afd348409fc6c3d09d0897c5833d9d5bf1ff31f5e60ea3ee42ce2b1268c.css">
+
+  
+  <link rel="stylesheet" href="//localhost:1313/css/menu.min.3c17467ebeb3d38663dce68f71f519901124fa5cbb4519b2fb0667a21e9aca39.css">
+
+  
+  <link rel="stylesheet" href="//localhost:1313/css/pagination.min.bbb986dbce00a5ce5aca0504b7925fc1c581992a4bf57f163e5d69cc1db7d836.css">
+
+  
+  <link rel="stylesheet" href="//localhost:1313/css/post.min.e6dddd258e64c83e05cec0cd49c05216742d42fc8ecbfbe6b67083412b609bd3.css">
+
+  
+  <link rel="stylesheet" href="//localhost:1313/css/syntax.min.a0773cce9310cb6d8ed23e50f005448facf29a53001b57e038828daa466b25c0.css">
+
+  
+  <link rel="stylesheet" href="//localhost:1313/css/terminal.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+
+  
+  <link rel="stylesheet" href="//localhost:1313/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
+
+
+<link rel="stylesheet" href="//localhost:1313/terminal.css">
+
+
+
+
+<link rel="shortcut icon" href="//localhost:1313/favicon.png">
+<link rel="apple-touch-icon" href="//localhost:1313/apple-touch-icon.png">
+
+
+<meta name="twitter:card" content="summary" />
+
+
+
+<meta property="og:locale" content="ru" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Lichee pi Zero, гайд по созданию образа ОС">
+<meta property="og:description" content="Статья является пересборкой моей же статьи от 22.02.2021 года: &amp;ldquo;Битва с одноплатным чудовищем. LicheePi Zero. Страх, боль и страдания.&amp;rdquo; Писалась она для моей группы vk.com, и я ей доволен по этому редактировать буду мало что. Сейчас делаю перепост дабы познакомится с вами. В остальном этот гайд может помочь вам собрать образ для sd карты чтобы lichee pi запустилась. И через еще три поста, эта статья улетит в архив.
+Начало?: И так, в дебрях алиэкспресса была найдена эта привлекательная по цене и габаритам плата микрокомпьютера." />
+<meta property="og:url" content="//localhost:1313/posts/licheepi-zero/" />
+<meta property="og:site_name" content="Блог j0132" />
+
+  <meta property="og:image" content="//localhost:1313/og-image.png">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2026-02-26 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+
+
+<div class="container center">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    j0132_blog
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/posts">Записи</a></li>
+        
+      
+        
+          <li><a href="/archive">Архив</a></li>
+        
+      
+        
+          <li><a href="/about">Обо мне</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="/posts" >Записи</a></li>
+        
+      
+        
+          <li><a href="/archive" >Архив</a></li>
+        
+      
+        
+          <li><a href="/about" >Обо мне</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="//localhost:1313/posts/licheepi-zero/">Lichee pi Zero, гайд по созданию образа ОС</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2026-02-26</time></div>
+
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        <p>Статья является пересборкой моей же статьи от 22.02.2021 года:
+&ldquo;Битва с одноплатным чудовищем. LicheePi Zero. Страх, боль и страдания.&rdquo;
+Писалась она для моей группы vk.com, и я ей доволен по этому редактировать буду мало что. Сейчас делаю перепост дабы познакомится с вами.
+В остальном этот гайд может помочь вам собрать образ для sd карты чтобы lichee pi запустилась.
+И через еще три поста, эта статья улетит в архив.</p>
+<p><img alt="LicheePi Zero." src="/posts/licheepi-zero/leechepi.png"></p>
+<h4 id="начало">Начало?:<a href="#начало" class="hanchor" ariaLabel="Anchor">#</a> </h4>
+<p>И так, в дебрях алиэкспресса была найдена эта привлекательная по цене и габаритам плата микрокомпьютера. Как раз начиналось мое увлечение одноплатными компьютерами. И я не смог не побаловать себя сием приобретением. Однако как плата прибыла все попытки запустить ее банальным способом как raspberry pi не увенчались успехом. После консультации с хорошим другом, я осознал что флешку надо создавать в линуксе на худой конец в WSL. Я под это дело из закрамов собрал компьютер на линуксе, вы же можете попробовать сделать флешку в WSL, однако я не гарантирую успехов в этом. И так вот как я запустил licheepi будет рассказано дальше.</p>
+<p><strong>Набор инструментов.</strong></p>
+<p><strong>Знак $ не копируем!!!!!</strong></p>
+<p>Обновите репозитории и установите набор инструментов следующим образом:</p>
+<p><code>$ sudo apt update</code></p>
+<p><code>$ sudo apt install gcc-arm-linux-gnueabihf</code></p>
+<p>Убедитесь что ваша система обновлена. Требуется как минимум версия<br>
+6.0 U-Boot.</p>
+<p><strong>U-boot.</strong></p>
+<p>Первый шаг - скомпилировать наш загрузчик.<br>
+Клонируйте репозиторий U-Boot с помощью:</p>
+<p><code>$ git clone https://github.com/u-boot/u-boot.git</code></p>
+<p><code>$ cd u-boot</code></p>
+<p>Вам могут понадобиться библиотеки swing и python-dev. Установите их, прежде чем продолжить процесс компиляции U-Boot.</p>
+<p><code>$ sudo apt install swig python-dev</code></p>
+<p>Чтобы скомпилировать U-Boot для нашей конкретной установки, мы будем использовать тот, <code>configs/LicheePi_Zero_defconfig</code>который предоставляется как часть основного репозитория U-Boot, который мы только что клонировали.</p>
+<p><code>$ make CROSS_COMPILE=arm-linux-gnueabihf- LicheePi_Zero_defconfig</code></p>
+<p>Если это сработает, скомпилируйте загрузчик:</p>
+<p><code>$ make CROSS_COMPILE=arm-linux-gnueabihf-</code></p>
+<p>На данном этапе могут возникнуть проблемы с инструментами если выдает ошибку «что-то not found» лечится установкой этого «что-то».</p>
+<p>Если все идет хорошо, система должна сгенерировать файл с именем 
+<code>u-boot-sunxi-with-spl.bin</code>. Это двоичный файл загрузчика, и мы скопируем на нашу SD-карту, как только у нас будут готовы все остальные компоненты.</p>
+<p><strong>Ядро системы.</strong></p>
+<p>Далее мы скомпилируем ядро. Для этого нам понадобится форк Lichee репозитория Linux. Они создали конфигурацию ядра, которая хорошо работает на их плате. Самостоятельное определение правильной конфигурации было бы долгим и трудным процессом, поэтому мы будем использовать эту конфигурацию для установки нашего ядра. Делаем не глубокий клон:</p>
+<p><code>$ git clone --single-branch --branch=&quot;zero-5.2.y&quot; --depth=1  https://github.com/Lichee-Pi/linux.git</code></p>
+<p>Переходим в каталог linux:</p>
+<p><code>$ cd linux</code></p>
+<p>Выполните конфигурацию, выполнив следующую команду. Это проанализирует конфигурацию ядра и сгенерирует файл .config, который Make будет использовать для компиляции нашего ядра.</p>
+<p><code>$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-licheepi_zero_defconfig</code></p>
+<p>Если это удастся, то вы готовы скомпилировать ядро. Отметьте, сколько потоков / ядер вашей рабочей станции вы хотите назначить для задания, и используйте опцию <code>-j</code>, чтобы разделить рабочую нагрузку между ними. Например, в моей системе 4 потоков, поэтому я буду использовать <code>-j4</code>.</p>
+<p><code>$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf -j4 all</code></p>
+<p>Это также скомпилирует дерево устройств. Вкратце аппаратная настройка устройства описана в <code>arch/arm/boot/dts/sun8i-v3s-licheepi-zero.dts</code>файле. Процесс компиляции (с <code>make all</code>) скомпилирует файл <code>.dts</code>в скомпилированный «двоичный» <code>.dtb</code>файл, который загрузчик или система может прочитать. Мы скопируем этот <code>.dtb</code> файл на нашу загрузочную SD-карту вместе с файлом zImage.</p>
+<p>Нам также потребуется скомпилировать и установить модули ядра. Соберите модули и убедитесь, что INSTALL_MOD_PATH установлен в какой-то пустой каталог, к которому вы сможете получить доступ позже. Мы извлечем дерево модулей из этого каталога.</p>
+<p><code>$ sudo make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- -j4 modules</code></p>
+<p><code>$ sudo make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- -j4 modules_install INSTALL_MOD_PATH=/path/to/some/directory</code></p>
+<h3 id="сценарий-загрузки">Сценарий загрузки.<a href="#сценарий-загрузки" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<p>Чтобы автоматизировать процесс загрузки U-Boot, мы создадим небольшой файл, который будет автоматически запускаться скриптом. Он содержит несколько команд U-Boot, которые будут запускаться при инициализации U-Boot. Создайте файл с именем boot.cmd, содержащий следующие команды U-Boot:</p>
+<p><code>$ sudo nano U-Boot</code></p>
+<p>Добавьте в файл следующий текст:</p>
+<p><code>setenv bootargs console=ttyS0,115200 root=/dev/mmcblk0p2 rootwait panic=10</code></p>
+<p><code>load mmc 0:1 0x43000000 ${fdtfile}</code></p>
+<p><code>load mmc 0:1 0x42000000 zImage</code></p>
+<p><code>bootz 0x42000000 - 0x43000000</code></p>
+<p>После того, как вы создали <code>boot.cmd</code>файл с этими командами, мы отформатируем этот файл в <code>.scr</code>двоичный файл сценария, который может использовать U-Boot. Выполните команду:</p>
+<p><code>$ mkimage -C none -A arm -T script -d boot.cmd boot.scr</code></p>
+<p>Файл <code>boot.scr</code> , что мы создали, скопируем на SD - карту. <code>boot.cmd</code>использовать не будем.</p>
+<h3 id="rootfs">Rootfs.<a href="#rootfs" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<p>«Rootfs» - это файловая система, которая фактически используется операционной системой. Он содержит почти все, что операционной системе необходимо, чтобы предоставить пользователю (или в данном случае root) все удобства, которые можно ожидать при использовании системы Linux. Он будет содержать двоичные файлы общих приложений, таких как текстовые редакторы, системные утилиты, а также системные файлы и программы.</p>
+<p>Есть несколько способов создать rootfs. Я добился успеха только с двумя методами, но это в основном из-за моей неопытности, а не из-за реальных технических ограничений. Лучший метод, который я нашел, - это использовать утилиту Buildroot для создания rootfs на основе BusyBox, который содержит урезанные версии общих утилит Linux. Это лучше всего подходит для систем с крайне ограниченными ресурсами; он не даст вам более продвинутых функций, таких как компилятор C, управление пакетами или другие функции. Тем не менее, процесс сборки безболезненный, автономный и относительно защищенный от идиотов, что хорошо поддается учебному пособию для начинающих.</p>
+<p>Загрузите <a href="https://buildroot.org/download.html">последнюю стабильную версию Buildroot</a>, распакуйте и установите приложение.</p>
+<p>Мы выберем несколько вариантов для нашей конфигурации Buildroot. Запустите конфигуратор на основе меню.</p>
+<p><code>$ make menuconfig</code></p>
+<p>Обратите внимание что может не запускаться если окно консоли не растянуто на весь экран.</p>
+<p>Выберите следующие параметры. Если вам бросается в глаза что-то еще, и вы думаете, что это может помочь вашей системе, смело выбирайте и это.</p>
+<p><img alt="Настройки rootfs" src="/posts/licheepi-zero/rootfs.jpg">
+Настройки rootfs</p>
+<p>Особо следует отметить опции для включенных утилит Busybox. Busybox предоставляет набор часто используемых утилит, но некоторые из них предоставляются дополнительно.</p>
+<p>Некоторые из них, которые я хотел бы порекомендовать:</p>
+<p><img alt="утилиты" src="/posts/licheepi-zero/utilites.jpg">
+утилиты</p>
+<p>После того, как вы настроили систему Buildroot с помощью BusyBox, создайте файловую систему:</p>
+<p><code>$ make</code></p>
+<p>Да, это действительно так просто. Это займет некоторое время (особенно на более медленных системах), поэтому сделайте чашку чая, расслабьтесь и <del>покурите</del>. Несколько интересных заметок пока вы ждете:</p>
+<ul>
+<li>Buildroot будет использовать собственную внутреннюю, недавно загруженную цепочку инструментов компилятора (если она выбрана).</li>
+<li>Buildroot разрешит большую часть внутренних зависимостей во время компиляции, если не все.</li>
+<li>Это помогает сборкам быть более надежными, менее подверженными странным несоответствиям пакетов и просто в целом более удобными и защищенными от неопытного пользователя.</li>
+</ul>
+<p>После завершения длительного процесса сборки <code>rootfs.tar</code>в вашей папке<code>output</code> будет файл . Это то, что мы разархивируем на нашу SD-карту.</p>
+<h2 id="sd-card">SD Card.<a href="#sd-card" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>Для начала отчистим и разметим нашу карточку. Для этого будем использовать утилиту GParted.</p>
+<p><code>$ sudo apt-get install gparted</code></p>
+<p>Размечаем первую половину карты в fat16 при этом требуется совсем небольшой объём памяти. Я разметил на 128 МиБ.</p>
+<p><img alt="Первый раздел." src="/posts/licheepi-zero/gprted.jpg">
+Первый раздел.</p>
+<p>Второй раздел делаем весь в ext4. Теперь наша карта должна выглядить так:</p>
+<p><img alt="Общий вид разметки карты." src="/posts/licheepi-zero/gparted2.jpg">
+Общий вид разметки карты.</p>
+<p>Посмотрим свою карту в консоли командой: <code>sudo fdisk -l</code> . Я вижу свою SD-карту как <code>/dev/sdс</code>. Вы можете увидите свою карту как <code>/dev/sdX</code>, где X - это некоторая буква, в зависимости от вашей конфигурации и подключения других SD/USB-устройств.</p>
+<p><strong>Убедитесь, что вы выбрали правильное устройство. Если вы случайно выберете неправильное устройство, вы можете безвозвратно уничтожить данные на другом устройстве и безвозвратно потерять свою информацию.</strong></p>
+<p>После того, как вы идентифицировали свое устройство для удобства, экспортируйте имя как переменную оболочки:</p>
+<p><code>$ export card=/dev/sdX</code></p>
+<p>Затем мы записываем бинарный файл загрузчика на устройство. Найдите <code>u-boot-sunxi-with-spl.bin</code> который мы создали ранее. У меня лежал в папке u-boot. И данной командой запишите на карту его:</p>
+<p><code>$ sudo dd if=u-boot/u-boot-sunxi-with-spl.bin of=${card} bs=1024 seek=8</code></p>
+<p>Записываем так потому что загрузчик должен начинаться с первых 8 КБ в области памяти нашей карточки.</p>
+<p>Теперь, когда у нас созданы разделы и файловые системы, пора скопировать наши файлы в эти файловые системы. Сначала мы монтируем загрузочный раздел SD-карты в нашу хост-систему.</p>
+<p><code>$ sudo mount ${card}1 /mnt/</code></p>
+<p>Затем мы копируем наши файлы в загрузочный раздел.</p>
+<p><code>$ sudo cp /path/to/your/linux/repo/arch/arm/boot/zImage /mnt/</code></p>
+<p><code>$ sudo cp /path/to/your/script/boot.scr /mnt/</code></p>
+<p><code>$ sudo cp /path/to/your/linux/repo/arch/arm/boot/dts/sun8i-v3s-licheepi-zero.dtb /mnt/</code></p>
+<p>Затем синхронизируйте все изменения и отключите SD-карту.</p>
+<p><code>$ sync</code></p>
+<p><code>$ sudo umount /dev/</code></p>
+<p>Затем мы можем смонтировать основной раздел ext4 и скопировать созданные нами rootfs.</p>
+<p><code>$ sudo mount ${card}2 /mnt/</code></p>
+<p>Файлы rootfs, которые мы создали с помощью Buildroot, должны находиться в <code>/path/to/your/buildroot/output/images</code>папке. Cкопируйте на SD-карту с помощью:</p>
+<p><code>$ tar -C /mnt/ -xf images/rootfs.tar</code></p>
+<p>Осмотрите SD-карту и убедитесь, что корневая файловая система была правильно извлечена. Запуск <code>ls /mnt/</code>должен вернуть что-то, что в целом выглядит примерно так:</p>
+<p><img alt="Файлы на втором разделе карты." src="/posts/licheepi-zero/filesystem.jpg"></p>
+<p>Файлы на втором разделе карты.</p>
+<p>Если нет, удалите все с SD-карты ( <code>sudo rm -rf /mnt/*</code>) и повторите попытку.</p>
+<p>Затем мы скопируем модули ядра, которые мы скомпилировали ранее. Вызовите каталог, в который вы их скомпилировали, и выполните следующие команды:</p>
+<p><code>$ sudo mkdir -p /mnt/lib/modules</code></p>
+<p><code>$ sudo rm -rf /mnt/lib/modules/</code></p>
+<p><code>$ sudo cp -r &lt;YOUR_MODULE_DIRECTORY&gt;/output/lib /mnt/</code></p>
+<p>Процесс копирования rootfs завершен! Если все работает правильно, теперь у вас должна быть полностью работающая SD-карта для вашего устройства.</p>
+<p>По завершении синхронизируйте и отключите SD-карту.</p>
+<p><code>$ sync</code></p>
+<p><code>$ sudo umount /dev/</code></p>
+<h2 id="ftdi--uart">FTDI / UART.<a href="#ftdi--uart" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>Все готово теперь мы можем запустить наш микрокомпьютер. Для этого вставляем карточку в слот. И подключаем USB/TTL конвертер к плате.</p>
+<p><img alt="Распиновка." src="/posts/licheepi-zero/pinout.jpg">
+Распиновка.</p>
+<p>Нам нужен UART0.
+<strong>Подключаем TX конвертера к RX платы и соответственно RX конвертера к TX платы.</strong></p>
+<p>Теперь вставляем конвертер в ПК, я использую для этого виндовую машину и самый дешёвый USB/TTL конвертер. В диспетчере устройств смотрим виртуальный ком порт который эмулирует драйвер конвертера:</p>
+<p><img alt="Компорт." src="/posts/licheepi-zero/comport.jpg">
+Компорт.</p>
+<p>Также проверьте в доп настройках драйвера чтобы скорость соответствовала 115200.</p>
+<p>Теперь заходим в Putty и настраиваем как на скрине:</p>
+<p><img alt="Настройки Putty." src="/posts/licheepi-zero/putti.jpg">
+Настройки Putty.</p>
+<p>Теперь запускаем putty и подаем +5 вольт и землю с TTL конвертера.<br>
+видим результат:</p>
+<p><img alt="Финал наших трудов." src="/posts/licheepi-zero/term.jpg">
+Финал наших трудов.</p>
+<p>Все, можете развлекаться с платой как вашей душе угодно.</p>
+<p>Использованные материалы, а также благодарность:</p>
+<p><a href="https://zee2.github.io/2020/01/18/licheepi-zero/">https://zee2.github.io/2020/01/18/licheepi-zero/</a></p>
+<p><a href="https://licheepizero.us/">https://licheepizero.us/</a></p>
+
+      </div></div>
+
+  
+    
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2026 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>
