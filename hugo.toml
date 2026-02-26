@@ -1,5 +1,6 @@
 baseURL = "https://j0132.github.io/my_personal_site/"
-relativeURLs = true
+relativeURLs = false
+canonifyURLs = true
 languageCode = "ru-ru"
 defaultContentLanguage = "ru"
 title = "Мой личный сайт"
