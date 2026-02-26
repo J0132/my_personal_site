@@ -26,11 +26,11 @@ paginate = 3
   protocol = "https"
 
 [languages]
-  [languages.ru]
-    languageName = "Russian"   # просто название языка в интерфейсе, можешь написать "Русский"
+ [languages.ru]
+    languageName = "Russian"
     title = "Блог j0132"
+    [languages.ru.params]  # <-- добавляем эту секцию
     subtitle = "Попытка писать статейки номер 2"
-    
     [languages.ru.params.logo]
       logoText = "j0132_blog"
       logoHomeLink = "/"
