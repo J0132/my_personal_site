@@ -38,7 +38,7 @@ jobs:
         run: |
           hugo \
             --minify \
-            --baseURL "${{ steps.pages.outputs.baseURL }}/"
+            --baseURL "https://j0132.github.io/my_personal_site/"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
