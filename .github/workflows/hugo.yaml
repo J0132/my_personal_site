@@ -2,7 +2,7 @@ name: Deploy Hugo site to Pages
 
 on:
   push:
-    branches: ["main"]
+    branches: ["master"]
   workflow_dispatch:
 
 permissions:
@@ -18,7 +18,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.145.0   # можешь поставить свою версию
+      HUGO_VERSION: 0.123.7   # можешь поставить свою версию
     steps:
       - name: Install Hugo CLI
         run: |
